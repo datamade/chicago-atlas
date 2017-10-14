@@ -1,5 +1,7 @@
 ChicagoAtlas::Application.routes.draw do
 
+  get "healthy_chicago/home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,12 +14,17 @@ ChicagoAtlas::Application.routes.draw do
   match 'place/providers/:geo_slug' => 'geography#show_provider_dataset'
   match 'place/:geo_slug/resources(/:dataset_slug)' => 'geography#show_resources'
   match 'place/:geo_slug/:dataset_slug' => 'geography#show_dataset'
+  get "hospitals" => 'hospital#index'
+  match 'hospitals/:slug' => 'hospital#show'
 
   # static
   match 'map(/:dataset_slug)' => 'home#map'
   get "about" => 'home#about'
   get "partners" => 'home#partners'
   get "partner_sign_up" => 'home#partner_sign_up'
+
+  # healthy chicago 2.0
+  get 'healthy-chicago' => 'healthy_chicago#home'
 
   # json
   match "resources(/:dataset_id)/:north/:east/:south/:west" => 'geography#resources_json'

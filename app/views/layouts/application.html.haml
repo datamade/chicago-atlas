@@ -10,10 +10,8 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     %link{:href => "assets/favicon.ico", :rel => "shortcut icon"}/
-    = stylesheet_link_tag "//cdn.leafletjs.com/leaflet-0.5/leaflet.css"
-    /[if lte IE 8]
-      = stylesheet_link_tag "//cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css"
-
+    = stylesheet_link_tag "leaflet.css"
+    = stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "//fonts.googleapis.com/css?family=Raleway:400,800"
     = stylesheet_link_tag "//fonts.googleapis.com/css?family=Muli"
@@ -31,18 +29,20 @@
             %ul.nav.pull-right
               %li{:class => current_menu_class("home")}
                 %a{:href => "/"} Home
+              %li{:class => current_menu_class("healthy-chicago")}
+                %a{:href => "/healthy-chicago"} HEALTHY CHICAGO 2.0
               %li{:class => current_menu_class("map")}
                 %a{:href => "/map"} Map
-              / %li{:class => current_menu_class("condition")}
-              /   %a{:href => "/conditions"} Conditions
               %li{:class => current_menu_class("places")}
                 %a{:href => "/places"} Places
+              %li{:class => current_menu_class("hospitals")}
+                %a{:href => "/hospitals"} Hospitals
               %li{:class => current_menu_class("partners")}
                 %a{:href => "/partners"} Partners
               %li{:class => current_menu_class("about")}
                 %a{:href => "/about"} About
   
-    .container
+    #container-primary.container
           
       = yield
     %footer.footer
